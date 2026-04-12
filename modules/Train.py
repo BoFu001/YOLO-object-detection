@@ -3,15 +3,16 @@ import torch
 import torch.optim as optim
 import wandb
 from tqdm import tqdm
-from modules.Dataset import get_dataloaders
 from modules.Models.YOLOv1 import YOLOv1
 from modules.Loss import YOLOLoss
-from config import CKPT_DIR
+from config import CKPT_DIR, DEVICE
 
-def train(S, B, C, BATCH_SIZE, EPOCHS, LR, WEIGHT_DECAY, LAMBDA_BOX, LAMBDA_NOOBJ, RUN_NAME):
-    # device
-    device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-    print("Using device:", device)
+def train(model, raw_model, train_loader, val_loader, S, B, C, BATCH_SIZE, EPOCHS, LR, WEIGHT_DECAY, LAMBDA_BOX, LAMBDA_NOOBJ, RUN_NAME):
+
+
+    # print device info
+    print("Using device:", DEVICE) 
+
     
     # initialise wandb
     wandb.init(
@@ -30,20 +31,6 @@ def train(S, B, C, BATCH_SIZE, EPOCHS, LR, WEIGHT_DECAY, LAMBDA_BOX, LAMBDA_NOOB
             "lambda_noobj": LAMBDA_NOOBJ,
         }
     )
-    
-    # load data
-    train_loader, val_loader, test_loader = get_dataloaders(BATCH_SIZE, S, B, C)
-    
-    # create model
-    model = YOLOv1(S=S, B=B, C=C).to(device)
-    
-    # wrap model for multi-GPU if available
-    if torch.cuda.device_count() > 1:
-        print(f"Using {torch.cuda.device_count()} GPUs!")
-        model = torch.nn.DataParallel(model)
-    
-    # unwrap DataParallel to access head and state_dict
-    raw_model = model.module if isinstance(model, torch.nn.DataParallel) else model
 
     criterion = YOLOLoss(S=S, B=B, C=C, lambda_box=LAMBDA_BOX, lambda_noobj=LAMBDA_NOOBJ)
     
@@ -61,8 +48,8 @@ def train(S, B, C, BATCH_SIZE, EPOCHS, LR, WEIGHT_DECAY, LAMBDA_BOX, LAMBDA_NOOB
         train_cls   = 0.0
         
         for imgs, targets in tqdm(train_loader, desc=f"Epoch {epoch}/{EPOCHS} Train"):
-            imgs    = imgs.to(device)
-            targets = targets.to(device)
+            imgs    = imgs.to(DEVICE)
+            targets = targets.to(DEVICE)
             preds = model(imgs)
             total, box_l, obj_l, noobj_l, cls_l = criterion(preds, targets)
             optimizer.zero_grad()
@@ -87,8 +74,8 @@ def train(S, B, C, BATCH_SIZE, EPOCHS, LR, WEIGHT_DECAY, LAMBDA_BOX, LAMBDA_NOOB
         
         with torch.no_grad():
             for imgs, targets in tqdm(val_loader, desc=f"Epoch {epoch}/{EPOCHS} Val"):
-                imgs    = imgs.to(device)
-                targets = targets.to(device)
+                imgs    = imgs.to(DEVICE)
+                targets = targets.to(DEVICE)
                 preds   = model(imgs)
                 total, _, _, _, _ = criterion(preds, targets)
                 val_loss += total.item()
@@ -109,7 +96,6 @@ def train(S, B, C, BATCH_SIZE, EPOCHS, LR, WEIGHT_DECAY, LAMBDA_BOX, LAMBDA_NOOB
         # ── print progress ──
         print(f"Epoch {epoch:03d}/{EPOCHS} | train: {train_loss:.4f} | val: {val_loss:.4f}")
     
-    # use raw_model to save state_dict
-    torch.save(raw_model.state_dict(), f"{CKPT_DIR}/{RUN_NAME}.pth")
-    print(f"Model saved: {RUN_NAME}.pth")
     wandb.finish()
+    
+    return raw_model

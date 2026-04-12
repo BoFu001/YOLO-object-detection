@@ -1,4 +1,5 @@
 import os
+import torch
 
 if os.path.exists("/kaggle/input"):
     # Kaggle
@@ -17,7 +18,8 @@ else:
     CKPT_DIR  = 'checkpoints'
     NUM_WORKERS = 0
 
-
+# device
+DEVICE = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 # classes
 CLASSES = [
