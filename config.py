@@ -1,6 +1,7 @@
 import os
 import torch
 
+# paths
 if os.path.exists("/kaggle/input"):
     # Kaggle
     IMG_DIR     = '/kaggle/input/datasets/huanghanchina/pascal-voc-2012/VOC2012/JPEGImages'
@@ -20,6 +21,9 @@ else:
 
 # device
 DEVICE = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+
+# reproducibility
+SEED = 42
 
 # classes
 CLASSES = [
