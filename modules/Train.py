@@ -13,10 +13,6 @@ def train(S, B, C, BATCH_SIZE, EPOCHS, LR, WEIGHT_DECAY, LAMBDA_BOX, LAMBDA_NOOB
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     print("Using device:", device)
     
-    # wandb login for Kaggle
-    if os.path.exists("/kaggle/input"):
-        wandb.login(key=os.environ.get('WANDB_API_KEY'))
-    
     # initialise wandb
     wandb.init(
         entity  = "bofu001-city-st-george-s-university-of-london",
