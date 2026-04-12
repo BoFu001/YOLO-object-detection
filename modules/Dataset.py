@@ -1,4 +1,4 @@
-from config import IMG_DIR, ANN_DIR, CLASS2IDX, TRAIN_TXT, VAL_TXT
+from config import IMG_DIR, ANN_DIR, CLASS2IDX, TRAIN_TXT, VAL_TXT, NUM_WORKERS
 
 
 
@@ -266,9 +266,9 @@ def get_dataloaders(batch_size, S, B, C):
     val_dataset, test_dataset = random_split(val_full, [val_size, test_size])
 
     # create dataloaders
-    train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True,  num_workers=0)
-    val_loader   = DataLoader(val_dataset,   batch_size=batch_size, shuffle=False, num_workers=0)
-    test_loader  = DataLoader(test_dataset,  batch_size=batch_size, shuffle=False, num_workers=0)
+    train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True,  num_workers=NUM_WORKERS)
+    val_loader   = DataLoader(val_dataset,   batch_size=batch_size, shuffle=False, num_workers=NUM_WORKERS)
+    test_loader  = DataLoader(test_dataset,  batch_size=batch_size, shuffle=False, num_workers=NUM_WORKERS)
 
     print(f"Train set: {len(train_dataset)} images")
     print(f"Val set:   {len(val_dataset)} images")

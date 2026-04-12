@@ -1,0 +1,10 @@
+Train set: 5717 images
+Val set:   4076 images
+Test set:  1747 images
+
+KeyboardInterrupt
+Train set: 5717 images
+Val set:   4076 images
+Test set:  1747 images
+imgs shape:    torch.Size([2, 3, 448, 448])
+targets shape: torch.Size([2, 7, 7, 30])
