@@ -35,6 +35,7 @@ def train_finetune(model, raw_model, train_loader, val_loader, S, B, C, BATCH_SI
 
     # variables for early stopping
     best_val_loss = float('inf')
+    best_state    = None
     patience      = 5
     no_improve    = 0
 

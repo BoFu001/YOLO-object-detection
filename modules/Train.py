@@ -5,7 +5,7 @@ import wandb
 from tqdm import tqdm
 from modules.Models.YOLOv1 import YOLOv1
 from modules.Loss import YOLOLoss
-from config import CKPT_DIR, DEVICE
+from config import DEVICE
 
 def train(model, raw_model, train_loader, val_loader, S, B, C, BATCH_SIZE, EPOCHS, LR, WEIGHT_DECAY, LAMBDA_BOX, LAMBDA_NOOBJ, RUN_NAME):
 
