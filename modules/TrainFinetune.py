@@ -3,9 +3,8 @@ import torch
 import torch.optim as optim
 import wandb
 from tqdm import tqdm
-from modules.Models.YOLOv1Finetune import YOLOv1Finetune
 from modules.Loss import YOLOLoss
-from config import CKPT_DIR, DEVICE
+from config import DEVICE
 
 def train_finetune(model, raw_model, train_loader, val_loader, S, B, C, BATCH_SIZE, EPOCHS, LR, WEIGHT_DECAY, LAMBDA_BOX, LAMBDA_NOOBJ, RUN_NAME):
     print("Using device:", DEVICE)
@@ -34,7 +33,15 @@ def train_finetune(model, raw_model, train_loader, val_loader, S, B, C, BATCH_SI
         weight_decay=WEIGHT_DECAY
     )
 
+    # variables for early stopping
+    best_val_loss = float('inf')
+    patience      = 5
+    no_improve    = 0
+
+
     for epoch in range(1, EPOCHS + 1):
+
+        # train
         model.train()
         train_loss  = 0.0
         train_box   = 0.0
@@ -63,6 +70,7 @@ def train_finetune(model, raw_model, train_loader, val_loader, S, B, C, BATCH_SI
         train_noobj /= n
         train_cls   /= n
 
+        # validation
         model.eval()
         val_loss = 0.0
 
@@ -76,6 +84,7 @@ def train_finetune(model, raw_model, train_loader, val_loader, S, B, C, BATCH_SI
 
         val_loss /= len(val_loader)
 
+        # log to wandb
         wandb.log({
             "epoch":      epoch,
             "train_loss": train_loss,
@@ -88,5 +97,27 @@ def train_finetune(model, raw_model, train_loader, val_loader, S, B, C, BATCH_SI
 
         print(f"Epoch {epoch:03d}/{EPOCHS} | train: {train_loss:.4f} | val: {val_loss:.4f}")
 
+
+
+        # early stopping
+        if val_loss < best_val_loss:
+            best_val_loss = val_loss
+            no_improve = 0
+            # save best model state in memory
+            best_state = raw_model.state_dict().copy()
+            print(f"Best model at epoch {epoch} | val loss: {val_loss:.4f}")
+        else:
+            no_improve += 1
+            print(f"No improvement {no_improve}/{patience}")
+            if no_improve >= patience:
+                print(f"Early stopping at epoch {epoch}")
+                break
+
+
+    # restore best model state before returning
+    raw_model.load_state_dict(best_state)
+    print(f"Best val loss: {best_val_loss:.4f}")
+
     wandb.finish()
     return raw_model
+    
