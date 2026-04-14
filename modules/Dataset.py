@@ -1,14 +1,32 @@
 from config import IMG_DIR, ANN_DIR, CLASS2IDX, TRAIN_TXT, VAL_TXT, NUM_WORKERS
 
-
-
-
-
-
 from torchvision import transforms
 from PIL import Image
 
-# define image transform pipeline
+
+
+
+# transform for training with color augmentation
+transform_augmentation = transforms.Compose([
+    transforms.Resize((448, 448)),
+    transforms.ColorJitter(         
+        brightness=0.3,             
+        contrast=0.3,              
+        saturation=0.3,            
+        hue=0.1                     
+    ),                              
+    transforms.ToTensor(),
+    transforms.Normalize(
+        mean=[0.485, 0.456, 0.406],
+        std=[0.229, 0.224, 0.225]
+    )
+])
+
+
+
+
+
+# transform for validation and test (no augmentation)
 transform = transforms.Compose([
     transforms.Resize((448, 448)),        # resize image to 448x448
     transforms.ToTensor(),                # convert PIL image to tensor, pixel values 0~1
@@ -19,7 +37,7 @@ transform = transforms.Compose([
 ])
 
 
-def load_image(img_path):
+def load_image(img_path, augment):
 
     """
     Load and preprocess an image.
@@ -37,11 +55,12 @@ def load_image(img_path):
     # convert to RGB (some images might be grayscale or RGBA)
     img = img.convert('RGB')
 
-    # apply transform: resize + to tensor + normalize
-    img = transform(img)
-
+    # apply transform: resize + (color augmentation) + to tensor + normalize
     # return tensor of shape (3, 448, 448)
-    return img
+    if augment:                                  
+        return transform_augmentation(img)
+    else:
+        return transform(img) 
 
 
 
@@ -207,10 +226,11 @@ class VOCDataset(Dataset):
         B (int): number of boxes per cell
         C (int): number of classes
     """
-    def __init__(self, txt_file, S, B, C): 
+    def __init__(self, txt_file, S, B, C, augment): 
         self.S = S
         self.B = B
         self.C = C
+        self.augment = augment 
         # read image ID list from txt file
         with open(txt_file, 'r') as f:
             self.img_ids = [line.strip() for line in f.readlines()]
@@ -224,7 +244,7 @@ class VOCDataset(Dataset):
         img_id = self.img_ids[idx]
 
         # load image
-        img = load_image(f'{IMG_DIR}/{img_id}.jpg')
+        img = load_image(f'{IMG_DIR}/{img_id}.jpg', self.augment)
 
         # parse XML and encode
         boxes, labels = parse_xml(f'{ANN_DIR}/{img_id}.xml')
@@ -240,7 +260,7 @@ class VOCDataset(Dataset):
 
 from torch.utils.data import DataLoader, random_split
 
-def get_dataloaders(batch_size, S, B, C):
+def get_dataloaders(batch_size, S, B, C, augment=False):
     """
     Create train, validation and test DataLoaders for VOC2012.
     
@@ -257,8 +277,8 @@ def get_dataloaders(batch_size, S, B, C):
         test_loader:  DataLoader for test set
     """
     # create datasets
-    train_dataset = VOCDataset(TRAIN_TXT, S, B, C)
-    val_full      = VOCDataset(VAL_TXT,   S, B, C)
+    train_dataset = VOCDataset(TRAIN_TXT, S, B, C, augment=augment)
+    val_full      = VOCDataset(VAL_TXT,   S, B, C, augment=False)
 
     # split val into val (70%) and test (30%)
     val_size  = int(0.7 * len(val_full))
