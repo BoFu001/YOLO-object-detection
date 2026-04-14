@@ -1,9 +1,7 @@
-import os
 import torch
 import torch.optim as optim
 import wandb
 from tqdm import tqdm
-from modules.Models.YOLOv1 import YOLOv1
 from modules.Loss import YOLOLoss
 from config import DEVICE
 

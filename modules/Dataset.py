@@ -258,7 +258,7 @@ class VOCDataset(Dataset):
 
 
 
-from torch.utils.data import DataLoader, random_split
+from torch.utils.data import DataLoader
 
 def get_dataloaders(batch_size, S, B, C, augment=False):
     """
@@ -280,10 +280,11 @@ def get_dataloaders(batch_size, S, B, C, augment=False):
     train_dataset = VOCDataset(TRAIN_TXT, S, B, C, augment=augment)
     val_full      = VOCDataset(VAL_TXT,   S, B, C, augment=False)
 
-    # split val into val (70%) and test (30%)
+    # fixed split instead
     val_size  = int(0.7 * len(val_full))
     test_size = len(val_full) - val_size
-    val_dataset, test_dataset = random_split(val_full, [val_size, test_size])
+    val_dataset  = torch.utils.data.Subset(val_full, range(0, val_size))
+    test_dataset = torch.utils.data.Subset(val_full, range(val_size, len(val_full)))
 
     # create dataloaders
     train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True,  num_workers=NUM_WORKERS)
