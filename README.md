@@ -18,8 +18,7 @@ Implementation of a YOLOv1-style object detection model using a pretrained VGG16
 ---
 
 ## Project Structure
-
-\`\`\`
+```bash
 coursework/
 ├── config.py                        # paths, device, seed, classes
 ├── requirements.txt                 # dependencies
@@ -44,7 +43,7 @@ coursework/
         ├── YOLOv1.py               # frozen VGG16 backbone + head
         ├── YOLOv1Dropout.py        # frozen VGG16 + dropout in head
         └── YOLOv1Finetune.py       # unfrozen last 2 VGG16 layers + dropout
-\`\`\`
+```
 
 ---
 
@@ -53,27 +52,27 @@ coursework/
 **Pascal VOC 2012** - 20 object categories, 17,125 images.
 
 Download from Kaggle:
-\`\`\`bash
+```bash
 kaggle datasets download -d huanghanchina/pascal-voc-2012
-\`\`\`
+```
 
 Place the dataset in:
-\`\`\`
+```bash
 coursework/data/VOC2012/
 ├── JPEGImages/
 ├── Annotations/
 └── ImageSets/Main/
     ├── train.txt
     └── val.txt
-\`\`\`
+```
 
 ---
 
 ## Setup
 
-\`\`\`bash
+```bash
 pip install -r requirements.txt
-\`\`\`
+```
 
 ---
 
@@ -83,15 +82,15 @@ Open and run YOLO-object-detection.ipynb locally or on Colab/Kaggle.
 
 ### Experiments
 
-| Experiment | Model | LR | Notes | mAP@0.50 |
-|-----------|-------|----|-------|----------|
-| exp1 | YOLOv1 | 1e-3 | Baseline, 5 epochs | 0.1048 |
-| exp2 | YOLOv1 | 1e-4 | Lower LR, 20 epochs | 0.0961 |
-| exp3 | YOLOv1Dropout | 1e-4 | Dropout p=0.5 | 0.0935 |
-| exp4 | YOLOv1Finetune | 1e-4 | Unfreeze last 2 VGG layers + ES | 0.1208 |
-| exp5 | YOLOv1Finetune | lrH=1e-4, lrB=1e-5 | Layer-wise LR + ES | 0.1116 |
-| exp6 | YOLOv1Finetune | lrH=1e-4, lrB=5e-5 | Layer-wise LR tuning + ES | **0.1304** |
-| exp7 | YOLOv1Finetune | 1e-4 | ColorJitter augmentation + ES | 0.1274 |
+| Experiment | Model | LR | Notes | Best Val Loss | mAP@0.50 | mAP@0.50:0.95 |
+|-----------|-------|----|-------|---------------|----------|---------------|
+| exp1 | YOLOv1 | 1e-3 | Baseline, 5 epochs | 2.6246 | 0.1048 | 0.0221 |
+| exp2 | YOLOv1 | 1e-4 | Lower LR, 20 epochs | 2.3808 | 0.0961 | 0.0204 |
+| exp3 | YOLOv1Dropout | 1e-4 | Dropout p=0.5 | 2.3808 | 0.0935 | 0.0200 |
+| exp4 | YOLOv1Finetune | 1e-4 | Unfreeze last 2 VGG layers + ES | 2.2294 | 0.1208 | 0.0284 |
+| exp5 | YOLOv1Finetune | lrH=1e-4, lrB=1e-5 | Layer-wise LR + ES | 2.2649 | 0.1116 | 0.0245 |
+| exp6 | YOLOv1Finetune | lrH=1e-4, lrB=5e-5 | Layer-wise LR tuning + ES | 2.2452 | **0.1304** | **0.0284** |
+| exp7 | YOLOv1Finetune | 1e-4 | ColorJitter augmentation + ES | 2.1851 | 0.1274 | 0.0272 |
 
 **Best model: exp6** (mAP@0.50 = 0.1304)
 
