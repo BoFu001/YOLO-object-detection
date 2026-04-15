@@ -9,7 +9,7 @@ def train_finetune(model, raw_model, train_loader, val_loader, S, B, C, BATCH_SI
     print("Using device:", DEVICE)
 
     wandb.init(
-        entity  = "bofu001-city-st-george-s-university-of-london",
+        entity  = "bofu001-",
         project = "YOLO-VOC2012",
         name    = RUN_NAME,
         config  = {

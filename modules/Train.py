@@ -14,7 +14,7 @@ def train(model, raw_model, train_loader, val_loader, S, B, C, BATCH_SIZE, EPOCH
     
     # initialise wandb
     wandb.init(
-        entity  = "bofu001-city-st-george-s-university-of-london",
+        entity  = "bofu001-",
         project = "YOLO-VOC2012",
         name    = RUN_NAME,
         config  = {
