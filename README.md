@@ -49,7 +49,7 @@ coursework/
 
 ## Dataset
 
-**Pascal VOC 2012** - 20 object categories, 17,125 images.
+**Pascal VOC 2012** - 20 object categories, 11,540 images.
 
 Download from Kaggle:
 ```bash
@@ -84,8 +84,8 @@ Open and run YOLO-object-detection.ipynb locally or on Colab/Kaggle.
 
 | Experiment | Model | LR | Notes | Best Val Loss | mAP@0.50 | mAP@0.50:0.95 |
 |-----------|-------|----|-------|---------------|----------|---------------|
-| exp1 | YOLOv1 | 1e-3 | Baseline, 5 epochs | 2.6246 | 0.1048 | 0.0221 |
-| exp2 | YOLOv1 | 1e-4 | Lower LR, 20 epochs | 2.3808 | 0.0961 | 0.0204 |
+| exp1 | YOLOv1 | 1e-3 | Baseline, 5 epochs | 2.4655 | 0.1048 | 0.0221 |
+| exp2 | YOLOv1 | 1e-4 | Lower LR, 20 epochs | 2.4579 | 0.0961 | 0.0204 |
 | exp3 | YOLOv1Dropout | 1e-4 | Dropout p=0.5 | 2.3808 | 0.0935 | 0.0200 |
 | exp4 | YOLOv1Finetune | 1e-4 | Unfreeze last 2 VGG layers + ES | 2.2294 | 0.1208 | 0.0284 |
 | exp5 | YOLOv1Finetune | lrH=1e-4, lrB=1e-5 | Layer-wise LR + ES | 2.2649 | 0.1116 | 0.0245 |
@@ -107,7 +107,7 @@ Evaluation uses torchmetrics.detection.MeanAveragePrecision:
 
 ## Inference
 
-The final cell in the notebook loads the best model (exp6) and runs inference on 5 test images, displaying ground truth (green) vs predictions (red).
+The final cell in the notebook loads the best model (exp6) and runs inference on 20 test images, displaying ground truth (green) vs predictions (red).
 
 ---
 
@@ -126,6 +126,5 @@ config.py automatically detects the environment:
 | Platform | Data Path | Checkpoint Path |
 |----------|-----------|-----------------|
 | Local | data/VOC2012/ | checkpoints/ |
-| Kaggle | /kaggle/input/... | /kaggle/working/ |
-| Colab (local) | /content/VOC2012/ | Google Drive |
-| Colab (Drive) | Google Drive | Google Drive |
+| Kaggle | /kaggle/input/ | /kaggle/working/ |
+| Colab  | Google Drive | Google Drive |
