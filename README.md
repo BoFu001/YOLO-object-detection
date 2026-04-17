@@ -157,21 +157,21 @@ Ground truth bounding boxes are shown in **green**, while model predictions are 
   <img src="images/cat_result.png" width="720">
 </p>
 <p align="center">
-  <em>Figure 2a. Accurate cat detection with high confidence (0.98).</em>
+  <em>Figure 3a. Accurate cat detection with high confidence (0.98).</em>
 </p>
 
 <p align="center">
   <img src="images/horse_result.png" width="720">
 </p>
 <p align="center">
-  <em>Figure 2b. Correct horse localisation with confidence score 0.85.</em>
+  <em>Figure 3b. Correct horse localisation with confidence score 0.85.</em>
 </p>
 
 <p align="center">
   <img src="images/bird_result.png" width="720">
 </p>
 <p align="center">
-  <em>Figure 2c. Small-object failure case: one bird detected correctly, another misclassified as aeroplane.</em>
+  <em>Figure 3c. Small-object failure case: one bird detected correctly, another misclassified as aeroplane.</em>
 </p>
 
 These examples show that the model performs well on large and visually distinctive objects, while performance is weaker for small or ambiguous targets.
