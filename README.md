@@ -43,6 +43,7 @@ YOLOv1-style detector using a pretrained VGG16 backbone and lightweight detectio
 coursework/
 ├── config.py                        # paths, device, seed, classes
 ├── requirements.txt                 # dependencies
+├── train.py                         # command-line training entry script
 ├── YOLO-object-detection.ipynb      # main notebook
 ├── checkpoints/                     # saved model weights
 │   ├── exp1_YOLOv1_lr1e-3.pth
