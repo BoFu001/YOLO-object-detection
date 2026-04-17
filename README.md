@@ -99,9 +99,40 @@ pip install -r requirements.txt
 
 ## Training
 
-Primary training workflow is provided in YOLO-object-detection.ipynb and can be executed locally or on Colab/Kaggle.
+### Command Line Training
 
-### Experiments
+The project includes a root-level training script:
+
+```bash
+python train.py
+```
+
+Optional parameters:
+
+```bash
+python train.py --epochs 10
+python train.py --lr 1e-4
+python train.py --batch_size 16
+python train.py --epochs 20 --lr 1e-4 --batch_size 16
+```
+
+The script automatically detects Local / Kaggle / Colab environments using `config.py`.
+
+---
+
+### Notebook Training
+
+Primary experimentation workflow is also available in:
+
+```bash
+YOLO-object-detection.ipynb
+```
+
+This notebook was used for the reported experiments.
+
+---
+
+## Experiments
 
 | Experiment | Model | LR | Notes | Best Val Loss | mAP@0.50 | mAP@0.50:0.95 |
 |-----------|-------|----|-------|---------------|----------|---------------|
