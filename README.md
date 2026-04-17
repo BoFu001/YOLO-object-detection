@@ -61,9 +61,9 @@ coursework/
     ├── Evaluation.py                # mAP evaluation
     ├── Inference.py                 # inference and visualisation
     └── Models/
-        ├── YOLOv1.py               # frozen VGG16 backbone + head
-        ├── YOLOv1Dropout.py        # frozen VGG16 + dropout in head
-        └── YOLOv1Finetune.py       # unfrozen last 2 VGG16 layers + dropout
+        ├── YOLOv1.py                # frozen VGG16 backbone + head
+        ├── YOLOv1Dropout.py         # frozen VGG16 + dropout in head
+        └── YOLOv1Finetune.py        # unfrozen last 2 VGG16 layers + dropout
 ```
 
 ---
