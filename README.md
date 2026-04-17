@@ -126,6 +126,28 @@ Evaluation uses torchmetrics.detection.MeanAveragePrecision:
 
 ---
 
+## Training Curves
+
+Training and validation loss curves were logged using Weights & Biases across all seven experiments.
+
+<p align="center">
+  <img src="images/train_loss.png" width="800">
+</p>
+<p align="center">
+  <em>Figure 2a. Training loss curves across all experiments.</em>
+</p>
+
+<p align="center">
+  <img src="images/val_loss.png" width="800">
+</p>
+<p align="center">
+  <em>Figure 2b. Validation loss curves showing early stopping behaviour in fine-tuning experiments.</em>
+</p>
+
+The curves show consistent optimisation progress, while experiments 4–7 demonstrate clear overfitting control through early stopping.
+
+---
+
 ## Inference Examples
 
 The best-performing checkpoint (**exp6**) is loaded in the final notebook cell and evaluated on held-out test images.  
