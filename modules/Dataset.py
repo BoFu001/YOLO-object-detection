@@ -1,8 +1,7 @@
-from config import IMG_DIR, ANN_DIR, CLASS2IDX, TRAIN_TXT, VAL_TXT, NUM_WORKERS
+from my_config import IMG_DIR, ANN_DIR, CLASS2IDX, TRAIN_TXT, VAL_TXT, NUM_WORKERS
 
 from torchvision import transforms
 from PIL import Image
-
 
 
 

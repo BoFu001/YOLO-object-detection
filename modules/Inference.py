@@ -4,7 +4,7 @@ import matplotlib.patches as patches
 from torchvision.ops import nms
 from torchvision import transforms
 from PIL import Image
-from config import DEVICE, CLASSES, ANN_DIR
+from my_config import DEVICE, CLASSES, ANN_DIR
 import xml.etree.ElementTree as ET
 
 

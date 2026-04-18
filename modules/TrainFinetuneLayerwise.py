@@ -3,7 +3,7 @@ import torch.optim as optim
 import wandb
 from tqdm import tqdm
 from modules.Loss import YOLOLoss
-from config import DEVICE
+from my_config import DEVICE
 
 
 def train_finetune_layerwise(model, raw_model, train_loader, val_loader, S, B, C, BATCH_SIZE, EPOCHS, LR_HEAD, LR_BACKBONE, WEIGHT_DECAY, LAMBDA_BOX, LAMBDA_NOOBJ, RUN_NAME):
