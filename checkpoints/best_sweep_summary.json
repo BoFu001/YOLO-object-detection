@@ -1,0 +1,18 @@
+{
+  "run_name": "sweep_oxpb888z",
+  "ckpt_path": "/content/drive/MyDrive/Colab Notebooks/Education/Deep Learning for Image Analysis/YOLO-object-detection/checkpoints/sweep_oxpb888z.pth",
+  "val/mAP": 0.1313,
+  "val/mAP_50_95": 0.0297,
+  "config": {
+    "AUGMENT": false,
+    "BATCH_SIZE": 16,
+    "CONF_THRESH": 0.21293883422000917,
+    "DROPOUT_P": 0.3751917532373674,
+    "EPOCHS": 20,
+    "LAMBDA_BOX": 8.060458027511466,
+    "LAMBDA_NOOBJ": 0.34869950104691183,
+    "LR_BACKBONE": 3.084678252290207e-05,
+    "LR_HEAD": 0.00014272125807545497,
+    "WEIGHT_DECAY": 0.00028256096350027826
+  }
+}

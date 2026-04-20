@@ -1,6 +1,7 @@
 import torch
 import torch.optim as optim
 import wandb
+import random
 from tqdm import tqdm
 from modules.Loss import YOLOLoss
 from my_config import DEVICE
@@ -8,27 +9,30 @@ from my_config import DEVICE
 def train(model, raw_model, train_loader, val_loader, S, B, C, BATCH_SIZE, EPOCHS, LR, WEIGHT_DECAY, LAMBDA_BOX, LAMBDA_NOOBJ, RUN_NAME):
 
 
-    # print device info
-    print("Using device:", DEVICE) 
+    # Print device info
+    print("Using device:", DEVICE)
 
     
-    # initialise wandb
-    wandb.init(
-        entity  = "bofu001-",
-        project = "YOLO-VOC2012",
-        name    = RUN_NAME,
-        config  = {
-            "S":            S,
-            "B":            B,
-            "C":            C,
-            "batch_size":   BATCH_SIZE,
-            "epochs":       EPOCHS,
-            "lr":           LR,
+    # Start a new W&B run for this training script
+    run = wandb.init(
+        entity="y-benjamin_pc-city-st-george-s-university-of-london",
+        project="YOLO-VOC",
+        name=RUN_NAME,
+        config={
+            "learning_rate": LR,
+            "architecture": "CNN",
+            "dataset": "CIFAR-100",
+            "epochs": EPOCHS,
+            "S": S,
+            "B": B,
+            "C": C,
+            "batch_size": BATCH_SIZE,
             "weight_decay": WEIGHT_DECAY,
-            "lambda_box":   LAMBDA_BOX,
+            "lambda_box": LAMBDA_BOX,
             "lambda_noobj": LAMBDA_NOOBJ,
-        }
+        },
     )
+
 
     criterion = YOLOLoss(S=S, B=B, C=C, lambda_box=LAMBDA_BOX, lambda_noobj=LAMBDA_NOOBJ)
     
@@ -97,3 +101,5 @@ def train(model, raw_model, train_loader, val_loader, S, B, C, BATCH_SIZE, EPOCH
     wandb.finish()
     
     return raw_model
+
+    
