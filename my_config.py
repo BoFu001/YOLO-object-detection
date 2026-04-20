@@ -16,7 +16,7 @@ elif os.path.exists("/content/VOC2012"):
     ANN_DIR     = '/content/VOC2012/VOC2012/Annotations'
     TRAIN_TXT   = '/content/VOC2012/VOC2012/ImageSets/Main/train.txt'
     VAL_TXT     = '/content/VOC2012/VOC2012/ImageSets/Main/val.txt'
-    CKPT_DIR    = '/content/drive/MyDrive/checkpoints'
+    CKPT_DIR    = '/content/drive/MyDrive/Colab Notebooks/Education/Deep Learning for Image Analysis/YOLO-object-detection/checkpoints'
     NUM_WORKERS = 4
 elif os.path.exists("/content/drive"):
     # Colab Drive
@@ -24,7 +24,7 @@ elif os.path.exists("/content/drive"):
     ANN_DIR     = '/content/drive/MyDrive/VOC2012/VOC2012/Annotations'
     TRAIN_TXT   = '/content/drive/MyDrive/VOC2012/VOC2012/ImageSets/Main/train.txt'
     VAL_TXT     = '/content/drive/MyDrive/VOC2012/VOC2012/ImageSets/Main/val.txt'
-    CKPT_DIR    = '/content/drive/MyDrive/checkpoints'
+    CKPT_DIR    = '/content/drive/MyDrive/Colab Notebooks/Education/Deep Learning for Image Analysis/YOLO-object-detection/checkpoints'
     NUM_WORKERS = 2
 else:
     # Local

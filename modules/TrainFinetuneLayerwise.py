@@ -3,26 +3,37 @@ import torch.optim as optim
 import wandb
 from tqdm import tqdm
 from modules.Loss import YOLOLoss
-from config import DEVICE
+from my_config import DEVICE
 
 
 def train_finetune_layerwise(model, raw_model, train_loader, val_loader, S, B, C, BATCH_SIZE, EPOCHS, LR_HEAD, LR_BACKBONE, WEIGHT_DECAY, LAMBDA_BOX, LAMBDA_NOOBJ, RUN_NAME):
     print("Using device:", DEVICE)
 
-    wandb.init(
-        entity  = "bofu001-",
-        project = "YOLO-VOC2012",
-        name    = RUN_NAME,
-        config  = {
-            "S": S, "B": B, "C": C,
-            "batch_size":    BATCH_SIZE,
-            "epochs":        EPOCHS,
-            "lr_head":       LR_HEAD,      
-            "lr_backbone":   LR_BACKBONE, 
-            "weight_decay":  WEIGHT_DECAY,
-            "lambda_box":    LAMBDA_BOX,
-            "lambda_noobj":  LAMBDA_NOOBJ,
-        }
+    # Start a new wandb run to track this script.
+    run = wandb.init(
+        # Set the wandb entity where your project will be logged (generally your team name).
+        entity="y-benjamin_pc-city-st-george-s-university-of-london",
+        # Set the wandb project where this run will be logged.
+        project="YOLO-VOC",
+        name=RUN_NAME,
+        # Track hyperparameters and run metadata.
+        config={
+            # Keys requested in your snippet:
+            "learning_rate": LR_HEAD,
+            "architecture": "CNN",
+            "dataset": "CIFAR-100",
+            "epochs": EPOCHS,
+            # Existing YOLO/layerwise hyperparameters (kept for experiment tracking):
+            "S": S,
+            "B": B,
+            "C": C,
+            "batch_size": BATCH_SIZE,
+            "lr_head": LR_HEAD,
+            "lr_backbone": LR_BACKBONE,
+            "weight_decay": WEIGHT_DECAY,
+            "lambda_box": LAMBDA_BOX,
+            "lambda_noobj": LAMBDA_NOOBJ,
+        },
     )
 
     criterion = YOLOLoss(S=S, B=B, C=C, lambda_box=LAMBDA_BOX, lambda_noobj=LAMBDA_NOOBJ)

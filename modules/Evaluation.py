@@ -1,7 +1,7 @@
 import torch
 from torchvision.ops import nms
 from torchmetrics.detection.mean_ap import MeanAveragePrecision
-from config import DEVICE
+from my_config import DEVICE
 
 
 def decode_predictions(pred, S, B, C, conf_thresh):

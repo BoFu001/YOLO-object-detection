@@ -1,32 +1,11 @@
 # YOLO Object Detection on Pascal VOC 2012
 
-![PyTorch](https://img.shields.io/badge/PyTorch-Framework-red?logo=pytorch)
-![Object Detection](https://img.shields.io/badge/Task-Object%20Detection-blue)
-![Pascal VOC](https://img.shields.io/badge/Dataset-Pascal%20VOC%202012-green)
-![YOLOv1](https://img.shields.io/badge/Model-YOLOv1-orange)
-![Wandb](https://img.shields.io/badge/Tracking-W%26B-yellow?logo=weightsandbiases)
-![Coursework](https://img.shields.io/badge/INM705-Coursework-purple)
-
 ## Project Overview
 Implementation of a YOLOv1-style object detection model using a pretrained VGG16 backbone, trained and evaluated on the Pascal VOC 2012 dataset with 20 object categories.
 
 **Course:** INM705 Deep Learning for Image Analysis  
 **Institution:** City St George's, University of London  
 **Authors:** Bo Fu, Yehoshua Perez Condori  
-
----
-
-## Model Architecture
-
-YOLOv1-style detector using a pretrained VGG16 backbone and lightweight detection head.
-
-<p align="center">
-  <img src="images/architecture.png" width="950">
-</p>
-
-<p align="center">
-  <em>Figure 1. YOLOv1-style object detector with VGG16 backbone and prediction head producing a 7×7×30 output tensor.</em>
-</p>
 
 ---
 
@@ -43,7 +22,6 @@ YOLOv1-style detector using a pretrained VGG16 backbone and lightweight detectio
 coursework/
 ├── config.py                        # paths, device, seed, classes
 ├── requirements.txt                 # dependencies
-├── train.py                         # command-line training entry script
 ├── YOLO-object-detection.ipynb      # main notebook
 ├── checkpoints/                     # saved model weights
 │   ├── exp1_YOLOv1_lr1e-3.pth
@@ -62,9 +40,9 @@ coursework/
     ├── Evaluation.py                # mAP evaluation
     ├── Inference.py                 # inference and visualisation
     └── Models/
-        ├── YOLOv1.py                # frozen VGG16 backbone + head
-        ├── YOLOv1Dropout.py         # frozen VGG16 + dropout in head
-        └── YOLOv1Finetune.py        # unfrozen last 2 VGG16 layers + dropout
+        ├── YOLOv1.py               # frozen VGG16 backbone + head
+        ├── YOLOv1Dropout.py        # frozen VGG16 + dropout in head
+        └── YOLOv1Finetune.py       # unfrozen last 2 VGG16 layers + dropout
 ```
 
 ---
@@ -100,40 +78,9 @@ pip install -r requirements.txt
 
 ## Training
 
-### Command Line Training
+Open and run YOLO-object-detection.ipynb locally or on Colab/Kaggle.
 
-The project includes a root-level training script:
-
-```bash
-python train.py
-```
-
-Optional parameters:
-
-```bash
-python train.py --epochs 10
-python train.py --lr 1e-4
-python train.py --batch_size 16
-python train.py --epochs 20 --lr 1e-4 --batch_size 16
-```
-
-The script automatically detects Local / Kaggle / Colab environments using `config.py`.
-
----
-
-### Notebook Training
-
-Primary experimentation workflow is also available in:
-
-```bash
-YOLO-object-detection.ipynb
-```
-
-This notebook was used for the reported experiments.
-
----
-
-## Experiments
+### Experiments
 
 | Experiment | Model | LR | Notes | Best Val Loss | mAP@0.50 | mAP@0.50:0.95 |
 |-----------|-------|----|-------|---------------|----------|---------------|
@@ -158,61 +105,15 @@ Evaluation uses torchmetrics.detection.MeanAveragePrecision:
 
 ---
 
-## Training Curves
+## Inference
 
-Training and validation loss curves were logged using Weights & Biases across all seven experiments.
-
-<p align="center">
-  <img src="images/train_loss.png" width="800">
-</p>
-<p align="center">
-  <em>Figure 2a. Training loss curves across all experiments.</em>
-</p>
-
-<p align="center">
-  <img src="images/val_loss.png" width="800">
-</p>
-<p align="center">
-  <em>Figure 2b. Validation loss curves showing early stopping behaviour in fine-tuning experiments.</em>
-</p>
-
-The curves show consistent optimisation progress, while experiments 4–7 demonstrate clear overfitting control through early stopping.
-
----
-
-## Inference Examples
-
-The best-performing checkpoint (**exp6**) is loaded in the final notebook cell and evaluated on held-out test images.  
-Ground truth bounding boxes are shown in **green**, while model predictions are shown in **red** with confidence scores.
-
-<p align="center">
-  <img src="images/cat_result.png" width="720">
-</p>
-<p align="center">
-  <em>Figure 3a. Accurate cat detection with high confidence (0.98).</em>
-</p>
-
-<p align="center">
-  <img src="images/horse_result.png" width="720">
-</p>
-<p align="center">
-  <em>Figure 3b. Correct horse localisation with confidence score 0.85.</em>
-</p>
-
-<p align="center">
-  <img src="images/bird_result.png" width="720">
-</p>
-<p align="center">
-  <em>Figure 3c. Small-object failure case: one bird detected correctly, another misclassified as aeroplane.</em>
-</p>
-
-These examples show that the model performs well on large and visually distinctive objects, while performance is weaker for small or ambiguous targets.
+The final cell in the notebook loads the best model (exp6) and runs inference on 20 test images, displaying ground truth (green) vs predictions (red).
 
 ---
 
 ## Reproducibility
 
-- Random seed fixed at 42
+- Random seed fixed at SEED = 42
 - Val/Test split uses fixed Subset indexing (no random_split)
 - torch.backends.cudnn.deterministic = True
 
@@ -227,9 +128,3 @@ config.py automatically detects the environment:
 | Local | data/VOC2012/ | checkpoints/ |
 | Kaggle | /kaggle/input/ | /kaggle/working/ |
 | Colab  | Google Drive | Google Drive |
-
----
-
-## Summary
-
-This coursework demonstrates a reproducible YOLOv1-style object detection workflow using transfer learning, structured experimentation, and systematic evaluation under realistic computational constraints.
