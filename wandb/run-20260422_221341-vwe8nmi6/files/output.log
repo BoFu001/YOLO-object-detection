@@ -1,0 +1,24 @@
+/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/IPython/core/completerlib.py:120: UserWarning: using rootmodules_cache requires you to install the `pickleshare` library.
+  rootmodules_cache = ip.db.get('rootmodules_cache', {})
+/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/IPython/core/completerlib.py:120: UserWarning: using rootmodules_cache requires you to install the `pickleshare` library.
+  rootmodules_cache = ip.db.get('rootmodules_cache', {})
+/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/IPython/core/completerlib.py:120: UserWarning: using rootmodules_cache requires you to install the `pickleshare` library.
+  rootmodules_cache = ip.db.get('rootmodules_cache', {})
+/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/IPython/core/completerlib.py:120: UserWarning: using rootmodules_cache requires you to install the `pickleshare` library.
+  rootmodules_cache = ip.db.get('rootmodules_cache', {})
+/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/IPython/core/completerlib.py:120: UserWarning: using rootmodules_cache requires you to install the `pickleshare` library.
+  rootmodules_cache = ip.db.get('rootmodules_cache', {})
+CUDA available: True
+Device count: 1
+GPU: NVIDIA A100-SXM4-40GB
+Current working directory: /teamspace/studios/this_studio/YOLO-object-detection
+True
+True
+W&B enabled from Lightning secret.
+KAGGLE_CONFIG_DIR = /teamspace/studios/this_studio/YOLO-object-detection
+Using kaggle.json from: /teamspace/studios/this_studio/YOLO-object-detection/kaggle.json
+Zip already exists: /teamspace/lightning_storage/data/pascal-voc-2012.zip
+Dataset already extracted at: /teamspace/lightning_storage/data/VOC2012
+Done.
+<module 'wandb' from '/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/wandb/__init__.py'>
+/home/zeus/miniconda3/envs/cloudspace/lib/python3.12/site-packages/wandb/__init__.py

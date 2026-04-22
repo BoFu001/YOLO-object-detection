@@ -1,0 +1,11 @@
+USING DEVICE: cpu
+Notebook NUM_WORKERS: 0
+Dataset module NUM_WORKERS: 0
+get_dataloaders uses: 0
+CUDA available: False
+Device count: 0
+Train set: 5717 images
+Val set:   4076 images
+Test set:  1747 images
+not using multiple GPUs
+Using device: cpu

@@ -1,0 +1,23 @@
+Epoch 1/5 Train:   0%|          | 0/358 [00:27<?, ?it/s]
+Notebook NUM_WORKERS: 0
+Dataset module NUM_WORKERS: 0
+get_dataloaders uses: 0
+modules.Dataset
+CUDA: True
+MODEL DEVICE: cuda:0
+TEST TENSOR DEVICE: cuda:0
+CUDA: True
+Using forced sweep:
+{'LR_HEAD': 0.0273, 'LR_BACKBONE': 8.1e-05, 'WEIGHT_DECAY': 0.0001, 'LAMBDA_BOX': 0.05, 'LAMBDA_NOOBJ': 0.5, 'DROPOUT_P': 0.3, 'CONF_THRESH': 0.5, 'BATCH_SIZE': 16, 'AUGMENT': True, 'EPOCHS': 20}
+Checkpoint: /teamspace/studios/this_studio/YOLO-object-detection/checkpoints/sweep_8nxmzivh.pth.pth
+================================================================================
+Retraining with seed 42
+Train set: 5717 images
+Val set:   4076 images
+Test set:  1747 images
+Train set: 5717 images
+Val set:   4076 images
+Test set:  1747 images
+Updated 1 dropout layer(s) to p=0.300
+MODEL DEVICE: cuda:0
+Using device: cuda

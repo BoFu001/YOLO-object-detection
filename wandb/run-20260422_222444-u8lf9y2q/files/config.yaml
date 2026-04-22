@@ -1,0 +1,53 @@
+_wandb:
+    value:
+        cli_version: 0.26.0
+        e:
+            xh9btij2o6ihfcemp9ri84lpierbwuct:
+                codePath: /teamspace/studios/this_studio/YOLO-object-detection/YOLO_object_detection_lightning.ipynb
+                codePathLocal: YOLO_object_detection_lightning.ipynb
+                cpu_count: 30
+                cpu_count_logical: 30
+                cudaVersion: "12.8"
+                disk:
+                    /:
+                        total: "532608356352"
+                        used: "66192445440"
+                email: y.benjamin_pc@hotmail.com
+                executable: /home/zeus/miniconda3/envs/cloudspace/bin/python
+                git:
+                    commit: 701bc5e24bc309b0114ee0443c325c3699f84c45
+                    remote: https://github.com/BoFu001/YOLO-object-detection.git
+                gpu: NVIDIA A100-SXM4-40GB
+                gpu_count: 1
+                gpu_nvidia:
+                    - architecture: Ampere
+                      cudaCores: 6912
+                      memoryTotal: "42949672960"
+                      name: NVIDIA A100-SXM4-40GB
+                      uuid: GPU-5192a69a-d5c4-688d-c65b-02d221840123
+                host: 193-122-153-250
+                memory:
+                    total: "232205713408"
+                os: Linux-6.8.0-60-generic-x86_64-with-glibc2.39
+                program: /teamspace/studios/this_studio/YOLO-object-detection/YOLO_object_detection_lightning.ipynb
+                python: CPython 3.12.11
+                root: /teamspace/studios/this_studio/YOLO-object-detection
+                startedAt: "2026-04-22T22:24:44.475789Z"
+                writerId: xh9btij2o6ihfcemp9ri84lpierbwuct
+        m: []
+        python_version: 3.12.11
+        t:
+            "1":
+                - 1
+            "2":
+                - 1
+                - 41
+            "3":
+                - 2
+            "4": 3.12.11
+            "5": 0.26.0
+            "8":
+                - 1
+                - 2
+            "12": 0.26.0
+            "13": linux-x86_64
