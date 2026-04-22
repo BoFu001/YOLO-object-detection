@@ -25,7 +25,7 @@ elif os.path.exists("/teamspace/lightning_storage"):
     TRAIN_TXT   = '/teamspace/lightning_storage/data/VOC2012/ImageSets/Main/train.txt'
     VAL_TXT     = '/teamspace/lightning_storage/data/VOC2012/ImageSets/Main/val.txt'
     CKPT_DIR    = '/teamspace/studios/this_studio/YOLO-object-detection/checkpoints'
-    NUM_WORKERS = 0
+    NUM_WORKERS = 2
 else:
     # Local
     IMG_DIR   = 'data/VOC2012/JPEGImages'
