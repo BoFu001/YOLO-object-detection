@@ -33,7 +33,7 @@ else:
     TRAIN_TXT = 'data/VOC2012/ImageSets/Main/train.txt'
     VAL_TXT   = 'data/VOC2012/ImageSets/Main/val.txt'
     CKPT_DIR  = 'checkpoints'
-    NUM_WORKERS = 0
+    NUM_WORKERS = 2
 
 # device
 DEVICE = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
