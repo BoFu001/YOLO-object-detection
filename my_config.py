@@ -1,5 +1,10 @@
 import os
+from pathlib import Path
+
 import torch
+
+REPO_ROOT = Path(__file__).resolve().parent
+LOCAL_DATA_ROOT = REPO_ROOT / 'data' / 'VOC2012'
 
 # paths
 if os.path.exists("/kaggle/input") and not os.path.exists("/content/drive"):
@@ -28,11 +33,11 @@ elif os.path.exists("/teamspace/lightning_storage"):
     NUM_WORKERS = 2
 else:
     # Local
-    IMG_DIR   = 'data/VOC2012/JPEGImages'
-    ANN_DIR   = 'data/VOC2012/Annotations'
-    TRAIN_TXT = 'data/VOC2012/ImageSets/Main/train.txt'
-    VAL_TXT   = 'data/VOC2012/ImageSets/Main/val.txt'
-    CKPT_DIR  = 'checkpoints'
+    IMG_DIR   = str(LOCAL_DATA_ROOT / 'JPEGImages')
+    ANN_DIR   = str(LOCAL_DATA_ROOT / 'Annotations')
+    TRAIN_TXT = str(LOCAL_DATA_ROOT / 'ImageSets' / 'Main' / 'train.txt')
+    VAL_TXT   = str(LOCAL_DATA_ROOT / 'ImageSets' / 'Main' / 'val.txt')
+    CKPT_DIR  = str(REPO_ROOT / 'checkpoints')
     NUM_WORKERS = 2
 
 # device
