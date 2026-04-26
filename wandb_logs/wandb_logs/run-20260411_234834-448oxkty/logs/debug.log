@@ -1,0 +1,36 @@
+2026-04-11 23:48:34,558 INFO    MainThread:48219 [wandb_setup.py:_flush():81] Current SDK version is 0.25.1
+2026-04-11 23:48:34,558 INFO    MainThread:48219 [wandb_setup.py:_flush():81] Configure stats pid to 48219
+2026-04-11 23:48:34,558 INFO    MainThread:48219 [wandb_setup.py:_flush():81] Loading settings from environment variables
+2026-04-11 23:48:34,559 INFO    MainThread:48219 [wandb_init.py:setup_run_log_directory():717] Logging user logs to /Users/bofu/Desktop/deep learning for img /coursework/wandb/run-20260411_234834-448oxkty/logs/debug.log
+2026-04-11 23:48:34,559 INFO    MainThread:48219 [wandb_init.py:setup_run_log_directory():718] Logging internal logs to /Users/bofu/Desktop/deep learning for img /coursework/wandb/run-20260411_234834-448oxkty/logs/debug-internal.log
+2026-04-11 23:48:34,559 INFO    MainThread:48219 [wandb_init.py:monkeypatch_ipython():636] configuring jupyter hooks <wandb.sdk.wandb_init._WandbInit object at 0x12d07ae60>
+2026-04-11 23:48:34,559 INFO    MainThread:48219 [wandb_init.py:init():844] calling init triggers
+2026-04-11 23:48:34,559 INFO    MainThread:48219 [wandb_init.py:init():849] wandb.init called with sweep_config: {}
+config: {'S': 7, 'B': 2, 'C': 20, 'batch_size': 2, 'epochs': 1, 'lr': 0.001, 'weight_decay': 0.0001, 'lambda_box': 5.0, 'lambda_noobj': 0.5, '_wandb': {}}
+2026-04-11 23:48:34,559 INFO    MainThread:48219 [wandb_init.py:init():892] starting backend
+2026-04-11 23:48:34,821 INFO    MainThread:48219 [wandb_init.py:init():895] sending inform_init request
+2026-04-11 23:48:34,843 INFO    MainThread:48219 [wandb_init.py:init():903] backend started and connected
+2026-04-11 23:48:34,849 INFO    MainThread:48219 [wandb_run.py:_label_probe_notebook():1333] probe notebook
+2026-04-11 23:48:34,850 INFO    MainThread:48219 [wandb_run.py:_label_probe_notebook():1343] Unable to probe notebook: 'NoneType' object has no attribute 'get'
+2026-04-11 23:48:34,850 INFO    MainThread:48219 [wandb_init.py:init():973] updated telemetry
+2026-04-11 23:48:35,015 INFO    MainThread:48219 [wandb_init.py:init():997] communicating run to backend with 90.0 second timeout
+2026-04-11 23:48:37,710 INFO    MainThread:48219 [wandb_init.py:init():1042] starting run threads in backend
+2026-04-11 23:48:37,923 INFO    MainThread:48219 [wandb_run.py:_console_start():2524] atexit reg
+2026-04-11 23:48:37,923 INFO    MainThread:48219 [wandb_run.py:_redirect():2373] redirect: wrap_raw
+2026-04-11 23:48:37,923 INFO    MainThread:48219 [wandb_run.py:_redirect():2442] Wrapping output streams.
+2026-04-11 23:48:37,923 INFO    MainThread:48219 [wandb_run.py:_redirect():2465] Redirects installed.
+2026-04-11 23:48:37,925 INFO    MainThread:48219 [wandb_init.py:init():1082] run started, returning control to user process
+2026-04-11 23:48:39,744 INFO    MainThread:48219 [wandb_init.py:_post_run_cell_hook():606] [no run ID] resuming backend
+2026-04-11 23:49:15,951 INFO    MainThread:48219 [jupyter.py:save_ipynb():362] [no run ID] not saving jupyter notebook
+2026-04-11 23:49:15,952 INFO    MainThread:48219 [wandb_init.py:_pre_run_cell_hook():595] [no run ID] pausing backend
+2026-04-11 23:49:15,956 INFO    MainThread:48219 [wandb_init.py:_post_run_cell_hook():606] [no run ID] resuming backend
+2026-04-11 23:49:17,376 INFO    MainThread:48219 [jupyter.py:save_ipynb():362] [no run ID] not saving jupyter notebook
+2026-04-11 23:49:17,376 INFO    MainThread:48219 [wandb_init.py:_pre_run_cell_hook():595] [no run ID] pausing backend
+2026-04-11 23:49:18,535 INFO    MainThread:48219 [wandb_run.py:_finish():2291] finishing run bofu001-city-st-george-s-university-of-london/YOLO-VOC2012/448oxkty
+2026-04-11 23:49:18,536 INFO    MainThread:48219 [jupyter.py:save_history():435] not saving jupyter history
+2026-04-11 23:49:18,536 INFO    MainThread:48219 [jupyter.py:save_ipynb():362] not saving jupyter notebook
+2026-04-11 23:49:18,536 INFO    MainThread:48219 [wandb_init.py:_jupyter_teardown():621] cleaning up jupyter logic
+2026-04-11 23:49:18,537 INFO    MainThread:48219 [wandb_run.py:_atexit_cleanup():2490] got exitcode: 0
+2026-04-11 23:49:18,537 INFO    MainThread:48219 [wandb_run.py:_restore():2472] restore
+2026-04-11 23:49:18,537 INFO    MainThread:48219 [wandb_run.py:_restore():2478] restore done
+2026-04-11 23:49:19,582 INFO    MainThread:48219 [wandb_run.py:_footer_sync_info():3868] logging synced files

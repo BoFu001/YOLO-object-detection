@@ -1,0 +1,9 @@
+USING DEVICE: cuda
+CUDA available: True
+Device count: 1
+GPU: NVIDIA A100-SXM4-40GB
+Train set: 5717 images
+Val set:   4076 images
+Test set:  1747 images
+not using GPUs
+Using device: cuda

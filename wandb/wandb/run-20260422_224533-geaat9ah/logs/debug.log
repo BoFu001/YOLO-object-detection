@@ -1,0 +1,22 @@
+2026-04-22 22:45:33,170 INFO    MainThread:126002 [wandb_init.py:setup_run_log_directory():721] Logging user logs to /teamspace/studios/this_studio/YOLO-object-detection/wandb/run-20260422_224533-geaat9ah/logs/debug.log
+2026-04-22 22:45:33,170 INFO    MainThread:126002 [wandb_init.py:setup_run_log_directory():722] Logging internal logs to /teamspace/studios/this_studio/YOLO-object-detection/wandb/run-20260422_224533-geaat9ah/logs/debug-internal.log
+2026-04-22 22:45:33,170 INFO    MainThread:126002 [wandb_init.py:init():848] calling init triggers
+2026-04-22 22:45:33,170 INFO    MainThread:126002 [wandb_init.py:init():853] wandb.init called with sweep_config: {}
+config: {'learning_rate': 0.0273, 'architecture': 'CNN', 'dataset': 'CIFAR-100', 'epochs': 20, 'S': 7, 'B': 2, 'C': 20, 'batch_size': 16, 'lr_head': 0.0273, 'lr_backbone': 8.1e-05, 'weight_decay': 0.0001, 'lambda_box': 0.05, 'lambda_noobj': 0.5, '_wandb': {}}
+2026-04-22 22:45:36,386 INFO    MainThread:126002 [wandb_init.py:init():896] starting backend
+2026-04-22 22:45:36,386 INFO    MainThread:126002 [wandb_init.py:init():911] sending inform_init request
+2026-04-22 22:45:36,388 INFO    MainThread:126002 [wandb_init.py:init():919] backend started and connected
+2026-04-22 22:45:36,392 INFO    MainThread:126002 [wandb_run.py:_label_probe_notebook():1333] probe notebook
+2026-04-22 22:45:36,394 INFO    MainThread:126002 [wandb_init.py:init():989] updated telemetry
+2026-04-22 22:45:36,404 INFO    MainThread:126002 [wandb_init.py:init():1013] communicating run to backend with 90.0 second timeout
+2026-04-22 22:45:37,645 INFO    MainThread:126002 [wandb_init.py:init():1058] starting run threads in backend
+2026-04-22 22:45:37,818 INFO    MainThread:126002 [wandb_run.py:_console_start():2542] atexit reg
+2026-04-22 22:45:37,818 INFO    MainThread:126002 [wandb_run.py:_redirect():2391] redirect: wrap_raw
+2026-04-22 22:45:37,818 INFO    MainThread:126002 [wandb_run.py:_redirect():2460] Wrapping output streams.
+2026-04-22 22:45:37,818 INFO    MainThread:126002 [wandb_run.py:_redirect():2483] Redirects installed.
+2026-04-22 22:45:37,819 INFO    MainThread:126002 [wandb_init.py:init():1098] run started, returning control to user process
+2026-04-22 22:53:08,054 INFO    MainThread:126002 [wandb_run.py:_finish():2309] finishing run y-benjamin_pc-city-st-george-s-university-of-london/YOLO-VOC/geaat9ah
+2026-04-22 22:53:08,055 INFO    MainThread:126002 [wandb_run.py:_atexit_cleanup():2508] got exitcode: 0
+2026-04-22 22:53:08,055 INFO    MainThread:126002 [wandb_run.py:_restore():2490] restore
+2026-04-22 22:53:08,055 INFO    MainThread:126002 [wandb_run.py:_restore():2496] restore done
+2026-04-22 22:53:08,966 INFO    MainThread:126002 [wandb_run.py:_footer_sync_info():3886] logging synced files

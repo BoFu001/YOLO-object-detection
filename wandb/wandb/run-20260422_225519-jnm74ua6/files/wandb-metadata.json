@@ -1,0 +1,28 @@
+{
+  "os": "Linux-6.8.0-1007-gcp-x86_64-with-glibc2.39",
+  "python": "CPython 3.12.11",
+  "startedAt": "2026-04-22T22:55:19.294726Z",
+  "program": "/teamspace/studios/this_studio/YOLO-object-detection/YOLO_object_detection_lightning.ipynb",
+  "codePath": "/teamspace/studios/this_studio/YOLO-object-detection/YOLO_object_detection_lightning.ipynb",
+  "codePathLocal": "YOLO_object_detection_lightning.ipynb",
+  "git": {
+    "remote": "https://github.com/BoFu001/YOLO-object-detection.git",
+    "commit": "701bc5e24bc309b0114ee0443c325c3699f84c45"
+  },
+  "email": "y.benjamin_pc@hotmail.com",
+  "root": "/teamspace/studios/this_studio/YOLO-object-detection",
+  "host": "cs-01kpvp8h7gessr847ag3fp6ktd",
+  "executable": "/home/zeus/miniconda3/envs/cloudspace/bin/python",
+  "cpu_count": 2,
+  "cpu_count_logical": 4,
+  "disk": {
+    "/": {
+      "total": "395184570368",
+      "used": "21112037376"
+    }
+  },
+  "memory": {
+    "total": "16767406080"
+  },
+  "writerId": "agyf69ffshc6qm2oxbwdmgj850rc80r8"
+}

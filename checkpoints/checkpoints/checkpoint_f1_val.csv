@@ -1,0 +1,2 @@
+checkpoint,model_type,split,conf_thresh,nms_iou_thresh,iou_match_thresh,TP,FP,FN,precision,recall,f1
+/content/drive/MyDrive/Colab Notebooks/Education/Deep Learning for Image Analysis/YOLO-object-detection/checkpoints/sweep_8nxmzivh.pth,sweep_finetune,val,0.20561785961650125,0.5,0.5,1683,33912,8218,0.047281921618204804,0.16998283001717,0.07398452611218569

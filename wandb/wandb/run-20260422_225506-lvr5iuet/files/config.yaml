@@ -1,0 +1,44 @@
+_wandb:
+    value:
+        cli_version: 0.26.0
+        e:
+            gks23ojaa9jerupzl5koa1esqngayf91:
+                codePath: /teamspace/studios/this_studio/YOLO-object-detection/YOLO_object_detection_lightning.ipynb
+                codePathLocal: YOLO_object_detection_lightning.ipynb
+                cpu_count: 2
+                cpu_count_logical: 4
+                disk:
+                    /:
+                        total: "395184570368"
+                        used: "21130727424"
+                email: y.benjamin_pc@hotmail.com
+                executable: /home/zeus/miniconda3/envs/cloudspace/bin/python
+                git:
+                    commit: 701bc5e24bc309b0114ee0443c325c3699f84c45
+                    remote: https://github.com/BoFu001/YOLO-object-detection.git
+                host: cs-01kpvp8h7gessr847ag3fp6ktd
+                memory:
+                    total: "16767406080"
+                os: Linux-6.8.0-1007-gcp-x86_64-with-glibc2.39
+                program: /teamspace/studios/this_studio/YOLO-object-detection/YOLO_object_detection_lightning.ipynb
+                python: CPython 3.12.11
+                root: /teamspace/studios/this_studio/YOLO-object-detection
+                startedAt: "2026-04-22T22:55:06.503805Z"
+                writerId: gks23ojaa9jerupzl5koa1esqngayf91
+        m: []
+        python_version: 3.12.11
+        t:
+            "1":
+                - 1
+            "2":
+                - 1
+                - 41
+            "3":
+                - 2
+            "4": 3.12.11
+            "5": 0.26.0
+            "8":
+                - 1
+                - 2
+            "12": 0.26.0
+            "13": linux-x86_64

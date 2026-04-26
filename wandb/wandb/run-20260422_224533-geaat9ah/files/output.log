@@ -1,0 +1,20 @@
+Epoch 1/20 Train:   0%|          | 0/2859 [00:21<?, ?it/s]
+================================================================================
+Retraining with seed 42
+Train set: 5717 images
+Val set:   4076 images
+Test set:  1747 images
+Train set: 5717 images
+Val set:   4076 images
+Test set:  1747 images
+batch loaded
+torch.Size([2, 3, 448, 448]) torch.Size([2, 7, 7, 30])
+Updated 1 dropout layer(s) to p=0.300
+MODEL DEVICE: cuda:0
+cpu batch ok torch.Size([2, 3, 448, 448]) torch.Size([2, 7, 7, 30])
+moved to cuda
+forward ok torch.Size([2, 7, 7, 30])
+loss ok 14.824792861938477
+backward ok
+optimizer step ok
+Using device: cuda

@@ -1,0 +1,37 @@
+{
+  "selected_sweep_run": "sweep_8nxmzivh",
+  "selected_sweep_ckpt": "/content/drive/MyDrive/Colab Notebooks/Education/Deep Learning for Image Analysis/YOLO-object-detection/checkpoints/sweep_8nxmzivh.pth",
+  "selected_checkpoint_direct_eval": {
+    "val/mAP": 0.126,
+    "val/mAP_50_95": 0.0273,
+    "test/mAP": 0.1212,
+    "test/mAP_50_95": 0.0271
+  },
+  "final_sweep_config": {
+    "LR_HEAD": 8.106336470374642e-05,
+    "LR_BACKBONE": 1.569618297387051e-05,
+    "WEIGHT_DECAY": 0.0004538826458245303,
+    "LAMBDA_BOX": 6.068012807763245,
+    "LAMBDA_NOOBJ": 0.3662524566728407,
+    "DROPOUT_P": 0.3435466398976728,
+    "CONF_THRESH": 0.20561785961650125,
+    "BATCH_SIZE": 16,
+    "AUGMENT": false,
+    "EPOCHS": 20
+  },
+  "best_final_run_name": "exp9_seed42",
+  "best_final_ckpt": "/content/drive/MyDrive/Colab Notebooks/Education/Deep Learning for Image Analysis/YOLO-object-detection/checkpoints/exp9_seed42.pth",
+  "best_final_summary": {
+    "run_name": "exp9_seed42",
+    "seed": 42,
+    "ckpt_path": "/content/drive/MyDrive/Colab Notebooks/Education/Deep Learning for Image Analysis/YOLO-object-detection/checkpoints/exp9_seed42.pth",
+    "val/mAP": 0.1299,
+    "val/mAP_50_95": 0.0287,
+    "test/mAP": 0.1309,
+    "test/mAP_50_95": 0.0303
+  },
+  "mean_val_mAP": 0.1244,
+  "std_val_mAP": 0.004856953777832349,
+  "mean_test_mAP": 0.12446666666666667,
+  "std_test_mAP": 0.005582412859448258
+}

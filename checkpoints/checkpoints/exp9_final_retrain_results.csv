@@ -1,0 +1,4 @@
+run_name,seed,ckpt_path,val/mAP,val/mAP_50_95,test/mAP,test/mAP_50_95
+exp9_seed42,42,/content/drive/MyDrive/Colab Notebooks/Education/Deep Learning for Image Analysis/YOLO-object-detection/checkpoints/exp9_seed42.pth,0.1299,0.0287,0.1309,0.0303
+exp9_seed43,43,/content/drive/MyDrive/Colab Notebooks/Education/Deep Learning for Image Analysis/YOLO-object-detection/checkpoints/exp9_seed43.pth,0.1226,0.0273,0.1216,0.0271
+exp9_seed44,44,/content/drive/MyDrive/Colab Notebooks/Education/Deep Learning for Image Analysis/YOLO-object-detection/checkpoints/exp9_seed44.pth,0.1207,0.0271,0.1209,0.0261
