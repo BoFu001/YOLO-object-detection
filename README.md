@@ -32,7 +32,7 @@ YOLOv1-style detector using a pretrained VGG16 backbone and lightweight detectio
 
 ## Links
 - **Wandb:** https://wandb.ai/bofu001-/YOLO-VOC2012
-- **Colab Notebook:** https://drive.google.com/file/d/182m9Fadqzu_SJAwi9HJrPFqUUiMgEdhU/view?usp=sharing
+- **Colab Notebook:** https://colab.research.google.com/drive/182m9Fadqzu_SJAwi9HJrPFqUUiMgEdhU
 - **Kaggle Notebook:** https://www.kaggle.com/code/bofu001/yolo-object-detection
 - **Dataset:** https://www.kaggle.com/datasets/huanghanchina/pascal-voc-2012
 
